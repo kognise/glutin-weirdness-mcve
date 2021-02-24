@@ -23,6 +23,12 @@ use skia_safe::Surface;
 
 pub type WindowedContext = ContextWrapper<PossiblyCurrent, GlutinWindow>;
 
+pub struct Window {
+    pub handle: WindowedContext,
+    pub context: DirectContext,
+    pub surface: Surface,
+}
+
 fn main() {
     let event_loop = EventLoop::new();
 

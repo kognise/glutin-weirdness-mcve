@@ -3,15 +3,12 @@ use std::convert::TryInto;
 use glutin::event_loop::EventLoop;
 use glutin::dpi;
 use glutin::dpi::PhysicalSize;
-use glutin::window::Window as GlutinWindow;
 use glutin::window::WindowBuilder;
 use glutin::ContextBuilder;
 use glutin::event::Event;
 use glutin::event::WindowEvent;
 use glutin::event_loop::ControlFlow;
-use glutin::ContextWrapper;
 use glutin::GlProfile;
-use glutin::PossiblyCurrent;
 
 use skia_safe::gpu::gl::Format;
 use skia_safe::gpu::gl::FramebufferInfo;
@@ -20,14 +17,6 @@ use skia_safe::gpu::DirectContext;
 use skia_safe::gpu::SurfaceOrigin;
 use skia_safe::ColorType;
 use skia_safe::Surface;
-
-pub type WindowedContext = ContextWrapper<PossiblyCurrent, GlutinWindow>;
-
-pub struct Window {
-    pub handle: WindowedContext,
-    pub context: DirectContext,
-    pub surface: Surface,
-}
 
 fn main() {
     let event_loop = EventLoop::new();
